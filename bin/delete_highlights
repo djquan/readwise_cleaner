@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'bundler/setup'
+Bundler.require
+
+require_relative '../lib/readwise_cleaner'
+
+puts "Warning: This script will delete ALL your Readwise highlights!"
+puts "Are you sure you want to continue? (y/N)"
+
+if gets.chomp.downcase == 'y'
+  cleaner = ReadwiseCleaner.new
+  cleaner.delete_all_highlights
+else
+  puts "Operation cancelled"
+end
